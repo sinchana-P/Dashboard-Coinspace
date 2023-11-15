@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './style/App.css'
-import { Avatar, Button, Card, Descriptions, Divider, Empty, Form, Input, Layout, List, Menu, Space, Steps, TimePicker, Typography } from 'antd'
+import { Avatar, Button, Card, Descriptions, Divider, Empty, Form, Input, Layout, List, Menu, Space, Steps, Table, TimePicker, Typography , Tag} from 'antd'
 import { Content, Header } from 'antd/es/layout/layout'
 import Sider from 'antd/es/layout/Sider'
 import { AiFillHome } from "react-icons/ai";
@@ -28,9 +28,76 @@ import { SiXrp } from "react-icons/si";
 import { Select } from 'antd';
 import { GiRingingBell  } from "react-icons/gi";
 import { TbArrowsDownUp } from "react-icons/tb";
-
+import type { ColumnsType } from 'antd/es/table';
 
 function App() {
+
+  interface DataType {
+    key: string;
+    date: string;
+    detail: string;
+    price: string;
+  }
+  
+  const columns: ColumnsType<DataType> = [
+    {
+      title: 'Date',
+      dataIndex: 'date',
+      key: 'date',
+      render: (text) => <a>{text}</a>,
+    },
+    {
+      title: 'Detail',
+      dataIndex: 'detail',
+      key: 'detail',
+    },
+    {
+      title: 'Price',
+      dataIndex: 'price',
+      key: 'price',
+    }
+  ];
+  
+  const data: DataType[] = [
+    {
+      key: '1',
+      date: '2018/10/02 10:57:46',
+      detail: 'Deposit Japanese Yen',
+      price: '+10,000 JPY',
+    },
+    {
+      key: '2',
+      date: '2018/10/10 10:57:46',
+      detail: 'Bought Bitcoin',
+      price: '+0.00018147 BTC',
+    },
+    {
+      key: '3',
+      date: '2018/10/10 10:57:46',
+      detail: 'Service fee',
+      price: '-500 JPY',
+
+    },
+    {
+      key: '4',
+      date: '2018/10/02 10:57:46',
+      detail: 'Deposit Japanese Yen',
+      price: '+10,000 JPY',
+    },
+    {
+      key: '5',
+      date: '2018/10/10 10:57:46',
+      detail: 'Bought Bitcoin',
+      price: '+0.00018147 BTC',
+    },
+    {
+      key: '6',
+      date: '2018/10/10 10:57:46',
+      detail: 'Service fee',
+      price: '-500 JPY',
+
+    }
+  ];
 
   return (
    <>
@@ -281,201 +348,205 @@ function App() {
             </div>
 
             
-          <Layout >
-          <Space direction="horizontal">
-            <Card>
-              <div className='chart-sec-1'>
-                <div className='chart-sec-1-text'>
-                  <h2>BTC</h2>
-                  <Space wrap>
-                    <Select
-                      defaultValue="/JPY"
-                      // style={{ width: 120 }}
-                      bordered={false}
-                      options={[
-                        { value: 'jpy', label: '/JPY' },
-                        { value: 'jpy2', label: 'jpy2' },
-                        { value: 'jpy3', label: 'jpy3' },
-                      ]}
-                    />
-                    
-                  </Space>
+            <Layout >
+            <Space direction="horizontal">
+              <Card>
+                <div className='chart-sec-1'>
+                  <div className='chart-sec-1-text'>
+                    <h2>BTC</h2>
+                    <Space wrap>
+                      <Select
+                        defaultValue="/JPY"
+                        // style={{ width: 120 }}
+                        bordered={false}
+                        options={[
+                          { value: 'jpy', label: '/JPY' },
+                          { value: 'jpy2', label: 'jpy2' },
+                          { value: 'jpy3', label: 'jpy3' },
+                        ]}
+                      />
+                      
+                    </Space>
+                  </div>
+                  <Button className='buy-button'>BUY</Button>
                 </div>
-                <Button className='buy-button'>BUY</Button>
-              </div>
+                
+                {/* <Divider type='vertical' /> */}
+                <Divider />
               
+
+                <div className='chart-sec-2'>
+                  <div className='chart-sec-2-text'>
+                    <h2>721,882</h2>
+                    <p className='pink-font'>-4.66%  <GoArrowDown /></p>                  
+                  </div>
+                  <div className='chart-sec-2-text'>
+                    <p className='grey-font'>High</p>                  
+                    <h2>725,974</h2>
+                  </div>
+                  <div className='chart-sec-2-text'>
+                    <p className='grey-font'>Low</p>                  
+                    <h2>718,000</h2>
+                  </div>
+                  <div className='chart-sec-2-text'>
+                    <p className='grey-font'>24h Volume</p>                  
+                    <h2>677.7 BTC</h2>
+                  </div>
+                  <div className='chart-sec-2-text'>
+                    <p className='grey-font'>Price Alert</p>                  
+                    <GiRingingBell size={34} style={{color: "#130EAD"}} />
+                  </div>
+                  
+                </div>
+              </Card>
+
+              {/* <Divider orientation='right' /> */}
               {/* <Divider type='vertical' /> */}
-              <Divider />
-             
+              {/* <Divider style={{ height: '100%', float: 'right' }} type="vertical" /> */}
 
-              <div className='chart-sec-2'>
-                <div className='chart-sec-2-text'>
-                  <h2>721,882</h2>
-                  <p className='pink-font'>-4.66%  <GoArrowDown /></p>                  
-                </div>
-                <div className='chart-sec-2-text'>
-                  <p className='grey-font'>High</p>                  
-                  <h2>725,974</h2>
-                </div>
-                <div className='chart-sec-2-text'>
-                  <p className='grey-font'>Low</p>                  
-                  <h2>718,000</h2>
-                </div>
-                <div className='chart-sec-2-text'>
-                  <p className='grey-font'>24h Volume</p>                  
-                  <h2>677.7 BTC</h2>
-                </div>
-                <div className='chart-sec-2-text'>
-                  <p className='grey-font'>Price Alert</p>                  
-                  <GiRingingBell size={34} style={{color: "#130EAD"}} />
+              <Card>
+                <div className='chart-sec-right'>
+                  <div className='chart-sec-right-header'>
+                    <h1>Market Cap</h1>
+                    <TbArrowsDownUp style={{ color: "grey" }} />
+                  </div>
+                  <div className='market-cap-div'>
+                    <div className='market-cap-div-left'>
+                      <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
+                      <h2>BTC</h2>
+                    </div>               
+                    <div className='market-cap-div-left'>
+                      <h2>¥ 721,882</h2>
+                      <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
+                    </div>    
+                  </div>
+
+                  <div className='market-cap-div'>
+                    <div className='market-cap-div-left'>
+                      <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
+                      <h2>BTC</h2>
+                    </div>               
+                    <div className='market-cap-div-left'>
+                      <h2>¥ 721,882</h2>
+                      <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
+                    </div>    
+                  </div>
+
+                  <div className='market-cap-div'>
+                    <div className='market-cap-div-left'>
+                      <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
+                      <h2>BTC</h2>
+                    </div>               
+                    <div className='market-cap-div-left'>
+                      <h2>¥ 721,882</h2>
+                      <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
+                    </div>    
+                  </div>
+
+                  <div className='market-cap-div'>
+                    <div className='market-cap-div-left'>
+                      <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
+                      <h2>BTC</h2>
+                    </div>               
+                    <div className='market-cap-div-left'>
+                      <h2>¥ 721,882</h2>
+                      <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
+                    </div>    
+                  </div>
+
+                  <div className='market-cap-div'>
+                    <div className='market-cap-div-left'>
+                      <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
+                      <h2>BTC</h2>
+                    </div>               
+                    <div className='market-cap-div-left'>
+                      <h2>¥ 721,882</h2>
+                      <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
+                    </div>    
+                  </div>
+
+                  <div className='market-cap-div'>
+                    <div className='market-cap-div-left'>
+                      <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
+                      <h2>BTC</h2>
+                    </div>               
+                    <div className='market-cap-div-left'>
+                      <h2>¥ 721,882</h2>
+                      <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
+                    </div>    
+                  </div>
+
+                  <div className='market-cap-div'>
+                    <div className='market-cap-div-left'>
+                      <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
+                      <h2>BTC</h2>
+                    </div>               
+                    <div className='market-cap-div-left'>
+                      <h2>¥ 721,882</h2>
+                      <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
+                    </div>    
+                  </div>
+
+                  <div className='market-cap-div'>
+                    <div className='market-cap-div-left'>
+                      <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
+                      <h2>BTC</h2>
+                    </div>               
+                    <div className='market-cap-div-left'>
+                      <h2>¥ 721,882</h2>
+                      <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
+                    </div>    
+                  </div>
+
+                  <div className='market-cap-div'>
+                    <div className='market-cap-div-left'>
+                      <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
+                      <h2>BTC</h2>
+                    </div>               
+                    <div className='market-cap-div-left'>
+                      <h2>¥ 721,882</h2>
+                      <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
+                    </div>    
+                  </div>
                 </div>
                 
-              </div>
-            </Card>
-
-            {/* <Divider orientation='right' /> */}
-            {/* <Divider type='vertical' /> */}
-            {/* <Divider style={{ height: '100%', float: 'right' }} type="vertical" /> */}
-
-            <Card>
-              <div className='chart-sec-right'>
-                <div className='chart-sec-right-header'>
-                  <h1>Market Cap</h1>
-                  <TbArrowsDownUp style={{ color: "grey" }} />
-                </div>
-                <div className='market-cap-div'>
-                  <div className='market-cap-div-left'>
-                    <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
-                    <h2>BTC</h2>
-                  </div>               
-                  <div className='market-cap-div-left'>
-                    <h2>¥ 721,882</h2>
-                    <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
-                  </div>    
-                </div>
-
-                <div className='market-cap-div'>
-                  <div className='market-cap-div-left'>
-                    <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
-                    <h2>BTC</h2>
-                  </div>               
-                  <div className='market-cap-div-left'>
-                    <h2>¥ 721,882</h2>
-                    <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
-                  </div>    
-                </div>
-
-                <div className='market-cap-div'>
-                  <div className='market-cap-div-left'>
-                    <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
-                    <h2>BTC</h2>
-                  </div>               
-                  <div className='market-cap-div-left'>
-                    <h2>¥ 721,882</h2>
-                    <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
-                  </div>    
-                </div>
-
-                <div className='market-cap-div'>
-                  <div className='market-cap-div-left'>
-                    <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
-                    <h2>BTC</h2>
-                  </div>               
-                  <div className='market-cap-div-left'>
-                    <h2>¥ 721,882</h2>
-                    <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
-                  </div>    
-                </div>
-
-                <div className='market-cap-div'>
-                  <div className='market-cap-div-left'>
-                    <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
-                    <h2>BTC</h2>
-                  </div>               
-                  <div className='market-cap-div-left'>
-                    <h2>¥ 721,882</h2>
-                    <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
-                  </div>    
-                </div>
-
-                <div className='market-cap-div'>
-                  <div className='market-cap-div-left'>
-                    <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
-                    <h2>BTC</h2>
-                  </div>               
-                  <div className='market-cap-div-left'>
-                    <h2>¥ 721,882</h2>
-                    <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
-                  </div>    
-                </div>
-
-                <div className='market-cap-div'>
-                  <div className='market-cap-div-left'>
-                    <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
-                    <h2>BTC</h2>
-                  </div>               
-                  <div className='market-cap-div-left'>
-                    <h2>¥ 721,882</h2>
-                    <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
-                  </div>    
-                </div>
-
-                <div className='market-cap-div'>
-                  <div className='market-cap-div-left'>
-                    <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
-                    <h2>BTC</h2>
-                  </div>               
-                  <div className='market-cap-div-left'>
-                    <h2>¥ 721,882</h2>
-                    <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
-                  </div>    
-                </div>
-
-                <div className='market-cap-div'>
-                  <div className='market-cap-div-left'>
-                    <FaBitcoin size={20} style={{ color: "white", backgroundColor: "#FFC246", width: "45px", height: "45px", borderRadius: "50%", padding: "6px" }} />
-                    <h2>BTC</h2>
-                  </div>               
-                  <div className='market-cap-div-left'>
-                    <h2>¥ 721,882</h2>
-                    <p className='pink-font'>-4.66%  <GoArrowDown /></p>                 
-                  </div>    
-                </div>
-
-
-
-
-              </div>
+                <Divider />
               
-              <Divider />
-             
+     
+              </Card>
+            </Space>  
+            </Layout>
 
-              <div className='chart-sec-2'>
-                <div className='chart-sec-2-text'>
-                  <h2>721,882</h2>
-                  <p className='pink-font'>-4.66%  <GoArrowDown /></p>                  
+            <div className='bottom-section-container'>
+              <Card>
+                <div >
+                  <h2>Latest Activities</h2>
+                  <div className='activities-list'>
+                    <List.Item className='each-activity'>ALL</List.Item>
+                    <List.Item className='each-activity'>BTC</List.Item>
+                    <List.Item className='each-activity'>ETH</List.Item>
+                    <List.Item className='each-activity'>XRP</List.Item>
+                    <List.Item className='each-activity'>XEM</List.Item>
+                    <List.Item className='each-activity'>LSK</List.Item>
+                    <List.Item className='each-activity'>BTH</List.Item>
+                    <List.Item className='each-activity'>FCT</List.Item>
+                    <List.Item className='each-activity'>ETC</List.Item>
+                    <List.Item className='each-activity'>JPY</List.Item>   
+                  </div>
+
+                  <Divider />
+
                 </div>
-                <div className='chart-sec-2-text'>
-                  <p className='grey-font'>High</p>                  
-                  <h2>725,974</h2>
+
+                <div className='latest-activities-container'>
+                  <Table
+                    columns={columns}
+                    dataSource={data}
+                  />
                 </div>
-                <div className='chart-sec-2-text'>
-                  <p className='grey-font'>Low</p>                  
-                  <h2>718,000</h2>
-                </div>
-                <div className='chart-sec-2-text'>
-                  <p className='grey-font'>24h Volume</p>                  
-                  <h2>677.7 BTC</h2>
-                </div>
-                <div className='chart-sec-2-text'>
-                  <p className='grey-font'>Price Alert</p>                  
-                  <GiRingingBell size={34} style={{color: "#130EAD"}} />
-                </div>
-                
-              </div>
-            </Card>
-          </Space>  
-          </Layout>
+              </Card>
+              <Card>2</Card>
+            </div>
             
           </div>
 

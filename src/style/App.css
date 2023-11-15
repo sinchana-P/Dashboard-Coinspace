@@ -138,3 +138,25 @@
   align-items: center;
   justify-content: center;
 }
+.bottom-section-container {
+  display: flex;
+  flex-direction: row;
+}
+.latest-activities-container {
+  overflow: auto;
+}
+.activities-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.each-activity {
+  align-self: center;
+  justify-self: center;
+  padding: 10px 15px;
+  color: #b3b2b2;
+}
+.each-activity:nth-of-type(1) {
+  color: black;
+  border-bottom: 2px solid blue;
+}

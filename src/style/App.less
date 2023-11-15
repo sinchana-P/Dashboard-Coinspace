@@ -172,6 +172,11 @@
     padding: 10px;
 }
 
+// .chart-sec-right {
+//     background-color: grey;
+//     min-width: 40px;
+//     max-width: 500px;
+// }
 
 .chart-sec-right-header {
     display: flex;
@@ -181,6 +186,7 @@
 }
 
 .market-cap-div {
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -208,4 +214,38 @@
     align-items: center;
     justify-content: center;
     
+}
+
+// -----------------
+
+.bottom-section-container {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+// -----
+
+.latest-activities-container {
+    // scroll-behavior: auto;
+    overflow: auto;
+}
+
+.activities-list {
+    display: flex;
+    flex-direction: row;
+    // justify-content: center;
+    align-items: center;
+}
+
+.each-activity {
+    align-self: center;
+    justify-self: center;
+    padding: 10px 15px;
+    color: @grey;
+}
+
+.each-activity:nth-of-type(1){
+    color: black;
+    border-bottom: 2px solid blue;
 }
