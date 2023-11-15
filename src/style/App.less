@@ -49,11 +49,15 @@
     margin-bottom: 10px;
   }
   
+  .content {
+    overflow: auto;
+  }
+
   .header-container{
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* justify-content: center;  */
+    // justify-content: space-between; 
   }
   
   .header-icons {
@@ -91,16 +95,29 @@
     display: flex;
     flex-direction: row;
     justify-content: start;
+
     
     margin: 3px 12px;
     width: 500px;
   }
   
-  .top-card-text {
+  .top-card-text p{
     // .logo-circle;
+    font-size: 15px;
 
   }
+
+  .top-card-text h1{
+    font-size: 20px;
+  }
   
+  .top-card-currency p{
+    font-size: 15px;
+  }
+
+  .top-card-currency h1{
+    font-size: 20px;
+  }
 //   .coin-log{
 //     .logo-circle;
 //   }
@@ -126,6 +143,10 @@
 }
 
 // ------
+
+.chart-container {
+  margin: 10px 16px;
+}
 
 .chart-sec-1{
     display: flex;
@@ -164,12 +185,30 @@
     // justify-content: space-between;
 }
 
+.chart-sec-2-text:nth-of-type(1) p{
+  margin-right: 90px;
+  margin-left: 0px;
+}
+.chart-sec-2-text:nth-of-type(1) h2{
+  margin-right: 15px;
+  // margin-left: 0px;
+}
+
 .grey-font {
     color: @grey;
 }
 
 .chart-sec-2-text p{
     padding: 10px;
+}
+
+.chart-sec-2-text h2{
+  margin-right: 40px;
+  font-size: 18px;
+}
+
+.price-alert{
+  margin-left: 50px;
 }
 
 // .chart-sec-right {
@@ -201,11 +240,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    
+    margin-right: 60px;
 }
 
 .market-cap-div-left h2{
     padding: 0 20px;
+    font-size: 18px;
 }
 
 .market-cap-div-right {
@@ -216,11 +256,16 @@
     
 }
 
+.market-cap-div-right h2{
+  font-size: 18px;
+}
+
 // -----------------
 
 .bottom-section-container {
     display: flex;
     flex-direction: row;
+    margin: 10px 20px;
     
 }
 
@@ -249,3 +294,18 @@
     color: black;
     border-bottom: 2px solid blue;
 }
+
+// ----------
+
+// .newsfeed-container {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: start;
+//   justify-content: start;
+//   margin-left: 0;
+// }
+
+// .newsfeed-container h4{
+//   align-items: start;
+// }
+

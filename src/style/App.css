@@ -35,11 +35,13 @@
   margin-top: 60px;
   margin-bottom: 10px;
 }
+.content {
+  overflow: auto;
+}
 .header-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* justify-content: center;  */
 }
 .header-icons {
   margin: 0 7px;
@@ -69,11 +71,26 @@
   margin: 3px 12px;
   width: 500px;
 }
+.top-card-text p {
+  font-size: 15px;
+}
+.top-card-text h1 {
+  font-size: 20px;
+}
+.top-card-currency p {
+  font-size: 15px;
+}
+.top-card-currency h1 {
+  font-size: 20px;
+}
 .pink-font {
   color: #EE2E6B;
 }
 .green-font {
   color: #01C0AA;
+}
+.chart-container {
+  margin: 10px 16px;
 }
 .chart-sec-1 {
   display: flex;
@@ -103,11 +120,25 @@
   display: flex;
   flex-direction: row;
 }
+.chart-sec-2-text:nth-of-type(1) p {
+  margin-right: 90px;
+  margin-left: 0px;
+}
+.chart-sec-2-text:nth-of-type(1) h2 {
+  margin-right: 15px;
+}
 .grey-font {
   color: #b3b2b2;
 }
 .chart-sec-2-text p {
   padding: 10px;
+}
+.chart-sec-2-text h2 {
+  margin-right: 40px;
+  font-size: 18px;
+}
+.price-alert {
+  margin-left: 50px;
 }
 .chart-sec-right-header {
   display: flex;
@@ -128,9 +159,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-right: 60px;
 }
 .market-cap-div-left h2 {
   padding: 0 20px;
+  font-size: 18px;
 }
 .market-cap-div-right {
   display: flex;
@@ -138,9 +171,13 @@
   align-items: center;
   justify-content: center;
 }
+.market-cap-div-right h2 {
+  font-size: 18px;
+}
 .bottom-section-container {
   display: flex;
   flex-direction: row;
+  margin: 10px 20px;
 }
 .latest-activities-container {
   overflow: auto;
